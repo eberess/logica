@@ -29,22 +29,31 @@ const calculateScore = (difficulty: 'easy' | 'medium' | 'hard', timeInSeconds: n
 export default function SudokuPage() {
   const theme = useTheme();
   const [gameState, setGameState] = useState<GameState>(() => {
-    const savedState = localStorage.getItem('sudokuGameState');
-    const savedBestScores = localStorage.getItem('sudokuBestScores');
-    
+    if (typeof window !== 'undefined') {
+      const savedBestScores = localStorage.getItem('sudokuBestScores');
+      return {
+        grid: generateSudoku('easy'),
+        difficulty: 'easy',
+        isPlaying: false,
+        score: 0,
+        bestScores: savedBestScores ? JSON.parse(savedBestScores) : { easy: 0, medium: 0, hard: 0 },
+      };
+    }
     return {
       grid: generateSudoku('easy'),
       difficulty: 'easy',
       isPlaying: false,
       score: 0,
-      bestScores: savedBestScores ? JSON.parse(savedBestScores) : { easy: 0, medium: 0, hard: 0 },
+      bestScores: { easy: 0, medium: 0, hard: 0 },
     };
   });
 
   const [message, setMessage] = useState<{ text: string; severity: 'success' | 'error' | 'info' }>({ text: '', severity: 'info' });
 
   useEffect(() => {
-    localStorage.setItem('sudokuBestScores', JSON.stringify(gameState.bestScores));
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('sudokuBestScores', JSON.stringify(gameState.bestScores));
+    }
   }, [gameState.bestScores]);
 
   const handleCellChange = (row: number, col: number, value: number | null) => {

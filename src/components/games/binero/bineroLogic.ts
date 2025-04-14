@@ -116,7 +116,6 @@ export const generateBinero = (size: number, difficulty: 'easy' | 'medium' | 'ha
   solve();
 
   // Retirer des cellules aléatoirement selon la difficulté
-  const cellsToKeep = size * size - filledCells;
   let removed = 0;
 
   while (removed < filledCells) {

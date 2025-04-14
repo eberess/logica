@@ -10,7 +10,7 @@ interface TimerProps {
 
 export const Timer = ({ isRunning, onTimeUpdate }: TimerProps) => {
   const [seconds, setSeconds] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout>();
+  const intervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const lastUpdateRef = useRef<number>(0);
   const isFirstRender = useRef(true);
   const secondsRef = useRef(0);
@@ -22,8 +22,11 @@ export const Timer = ({ isRunning, onTimeUpdate }: TimerProps) => {
       lastUpdateRef.current = now;
       secondsRef.current += delta;
       setSeconds(secondsRef.current);
+      if (onTimeUpdate) {
+        onTimeUpdate(secondsRef.current);
+      }
     }
-  }, []);
+  }, [onTimeUpdate]);
 
   useEffect(() => {
     if (isFirstRender.current) {
@@ -48,10 +51,8 @@ export const Timer = ({ isRunning, onTimeUpdate }: TimerProps) => {
   }, [isRunning, updateTimer]);
 
   useEffect(() => {
-    if (onTimeUpdate) {
-      onTimeUpdate(secondsRef.current);
-    }
-  }, [seconds, onTimeUpdate]);
+    setSeconds(secondsRef.current);
+  }, [secondsRef.current]);
 
   const formatTime = (totalSeconds: number) => {
     const hours = Math.floor(totalSeconds / 3600);

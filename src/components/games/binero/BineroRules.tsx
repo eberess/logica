@@ -1,11 +1,8 @@
 'use client';
 
-import { Box, Typography, List, ListItem, ListItemIcon, ListItemText, Paper, useTheme } from '@mui/material';
-import { Check, Close, Info } from '@mui/icons-material';
+import { Box, Typography } from '@mui/material';
 
 export const BineroRules = () => {
-  const theme = useTheme();
-
   return (
     <Box sx={{ py: 2 }}>
       <Typography variant="body1" paragraph>

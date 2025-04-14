@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Typography, Grid, Card, CardContent, CardActions, Button, useTheme } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent, CardActions, Button, useTheme } from '@mui/material';
 import { Extension, Grid3x3, GridOn } from '@mui/icons-material';
 import Link from 'next/link';
 

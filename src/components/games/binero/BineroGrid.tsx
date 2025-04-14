@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Paper, Typography, useTheme } from '@mui/material';
+import { Box, Paper, Typography, useTheme, Theme } from '@mui/material';
 import { memo, useCallback, useMemo } from 'react';
 
 type CellValue = 0 | 1 | null;
@@ -25,13 +25,13 @@ const BineroCell = memo(({
   isConflict: boolean; 
   showHints: boolean; 
   onClick: () => void; 
-  theme: any;
+  theme: Theme;
 }) => (
   <Box
     onClick={onClick}
     sx={{
-      width: 40,
-      height: 40,
+      width: { xs: 32, sm: 40 },
+      height: { xs: 32, sm: 40 },
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -50,6 +50,7 @@ const BineroCell = memo(({
     <Typography
       variant="h6"
       sx={{
+        fontSize: { xs: '1rem', sm: '1.25rem' },
         color: value === null
           ? 'transparent'
           : isConflict && showHints
@@ -134,10 +135,12 @@ export const BineroGrid = memo(({ grid, onCellClick, showHints = false, difficul
     <Paper
       elevation={3}
       sx={{
-        p: 2,
+        p: { xs: 1, sm: 2 },
         display: 'inline-block',
         backgroundColor: theme.palette.background.paper,
         margin: '0 auto',
+        maxWidth: '100%',
+        overflow: 'auto',
       }}
     >
       <Box sx={gridStyle}>

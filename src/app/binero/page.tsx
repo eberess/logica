@@ -1,12 +1,12 @@
 'use client';
 
-import { Box, Container, Typography, Button, useTheme, ButtonGroup, Alert, Snackbar, IconButton, Tooltip, Paper, Divider, Dialog, DialogTitle, DialogContent, LinearProgress, Badge } from '@mui/material';
+import { Box, Container, Typography, Button, useTheme, ButtonGroup, Alert, Snackbar, IconButton, Tooltip, Paper, Divider, Dialog, DialogTitle, DialogContent, LinearProgress } from '@mui/material';
 import { BineroGrid } from '@/components/games/binero/BineroGrid';
 import { Timer } from '@/components/games/sudoku/Timer';
 import { generateBinero, validateGrid, isGridComplete, calculateScore } from '@/components/games/binero/bineroLogic';
 import { BineroRules } from '@/components/games/binero/BineroRules';
 import { useState, useCallback, useEffect, useMemo } from 'react';
-import { Help, Refresh, CheckCircle, Timer as TimerIcon, EmojiEvents, Undo, Save, Settings } from '@mui/icons-material';
+import { Help, Refresh, CheckCircle, Timer as TimerIcon, EmojiEvents, Undo, Settings } from '@mui/icons-material';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 type CellValue = 0 | 1 | null;
@@ -21,12 +21,6 @@ interface GameState {
   mistakes: number;
   gridSize: { rows: number; cols: number };
 }
-
-const DIFFICULTY_MULTIPLIER = {
-  easy: 1,
-  medium: 1.5,
-  hard: 2,
-};
 
 const GRID_SIZES = [
   { rows: 6, cols: 6, label: '6×6' },
