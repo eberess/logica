@@ -27,6 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+      <script defer src="https://umami.wilmoredynamics.com/script.js" data-website-id="c59597d7-c692-4338-bd98-47635aa695c3"></script>
+      </head>
       <body>
         <ColorModeProvider>
           <CssBaseline />
