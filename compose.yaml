@@ -1,0 +1,11 @@
+services:
+  logica:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-logica
+    ports:
+      - '${NODE_APP_PORT}:3000'        
+    environment:
+      NODE_ENV: production
+    restart: always

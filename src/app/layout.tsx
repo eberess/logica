@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ColorModeProvider } from '@/context/ColorModeContext';
 import { Navbar } from '@/components/Navbar';
 import { CssBaseline } from '@mui/material';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="fr" className={inter.className}>
       <head>
       <script defer src="https://umami.wilmoredynamics.com/script.js" data-website-id="c59597d7-c692-4338-bd98-47635aa695c3"></script>
       </head>

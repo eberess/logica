@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please consider citing it using the metadata from this file."
+type: software
+title: "Logica - Collection de Jeux de Logique"
+abstract: "Plateforme de jeux de logique en ligne proposant des mots croisés, sudoku et binero. Développée avec Next.js et Material-UI pour une expérience utilisateur optimale."
+version: 0.1.0
+date-released: 2024-09-30
+authors:
+  - given-names: EL
+    family-names: Beressa
+    affiliation: "Wilmore Dynamics"
+    email: elt@wilmoredynamics.com
+    orcid: "https://orcid.org/0009-0006-6467-7282"
+repository-code: "https://github.com/eberess/logica"
+url: "https://github.com/eberess/logica"
+license: MIT
+keywords:
+  - "Next.js"
+  - "TypeScript"
+  - "React"
+  - "Material-UI"
+  - "Docker"
+  - "Jeux de logique"
+  - "Sudoku"
+  - "Mots croisés"
+  - "Binero"
+  - "Puzzle games"
+  - "Logic games"
+  - "Open Source"
