@@ -40,8 +40,8 @@ L'application suit une architecture Next.js standard conteneurisée, en utilisan
 
 ### 1. Cloner le projet
 ```bash
-git clone https://github.com/votre-username/wilmore-dynamics.git
-cd wilmore-dynamics
+git clone https://github.com/eberess/logica.git
+cd logica
 ```
 
 ### 2. Configuration
