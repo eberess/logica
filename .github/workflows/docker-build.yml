@@ -34,7 +34,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }} 
       
-      # --- Définition des Tags d'Image ---
+
       
       - name: Define image tags (ghcr.io/eberess/logica)
         id: meta
